@@ -2,6 +2,7 @@ package lotto.controller;
 
 import java.util.Scanner;
 
+import lotto.global.Constant;
 import lotto.global.Validator;
 import lotto.model.Model;
 import lotto.view.View;
@@ -36,7 +37,7 @@ public class Controller {
     }
 
     public void inputGold(){
-        String gold = view.inputString("구입금액을 입력해주세요");
+        String gold = view.inputString(Constant.ControllerConstant.INPUT_MONEY);
         try {
             Validator.checkNoBlank(gold);
             Validator.checkNumber(gold);
@@ -46,8 +47,9 @@ public class Controller {
             inputGold();
         }
     }
+
     public void inputLotto(){
-        String lotto = view.inputString("당첨 번호를 입력해주세요");
+        String lotto = view.inputString(Constant.ControllerConstant.INPUT_CORRECTNUMBER);
         try {
             Validator.checkNoBlank(lotto);
             model.setCorrectLotto(lotto);
@@ -55,11 +57,10 @@ public class Controller {
             showError(e.getMessage());
             inputLotto();
         }
-
-        
     }
+
     public void inputBonus(){
-        String bonus = view.inputString("보너스 번호를 입력해주세요");
+        String bonus = view.inputString(Constant.ControllerConstant.INPUT_BONUSNUMBER);
         try {
             Validator.checkNoBlank(bonus);
             Validator.checkNumber(bonus);
