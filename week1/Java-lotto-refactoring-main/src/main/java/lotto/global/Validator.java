@@ -32,6 +32,7 @@ public class Validator{
             if(map.containsKey(array[i])){
                 throw new IllegalArgumentException(ValidatorConstant.DUPLICATION);
             }
+            map.put(array[i], 1);
         }
     }
 
