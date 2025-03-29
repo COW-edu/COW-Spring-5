@@ -51,5 +51,15 @@ public class Constant {
         public static final String INPUT_CORRECTNUMBER = "당첨 번호를 입력해주세요";
         public static final String INPUT_BONUSNUMBER = "보너스 번호를 입력해주세요";
     }
+
+    public static class ViewConstant{
+        public static final String STATISTICS = "당첨 통계 \n-------";
+        public static final String TOTAL_PROFIT_RATE_PREFIX = "총 수익률은 ";
+        public static final String TOTAL_PROFIT_RATE_SUFFIX = "%입니다.";
+        public static final String PURCHASED_COUNT_MESSAGE = "개를 구매했습니다.";
+        public static String resultMessage(String prizeText, int count) {
+            return prizeText+" - "+count+"개";
+        }
+    }
     
 }
