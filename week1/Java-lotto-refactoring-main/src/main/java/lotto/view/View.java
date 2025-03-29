@@ -22,7 +22,7 @@ public class View {
         System.out.println("당첨 통계");
         System.out.println("---------");
         for(LottoRank rank : LottoRank.values()){
-            System.out.println(rank.getCount()+"개 일치 "+"(" + rank.getPrize()+")원"+" - "+lottoResult.get(rank)+"개");
+            System.out.println(rank.getPrizeText()+" - "+lottoResult.get(rank)+"개");
             sum += rank.getPrize()*lottoResult.get(rank);
         }
         System.out.println("총 수익률은 "+ (float)Math.round(sum/gold*1000)/10+"%입니다.");
