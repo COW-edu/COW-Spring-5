@@ -26,13 +26,13 @@ public class Validator{
             throw new IllegalArgumentException(unit + ValidatorConstant.UNIT_MONEY);
         }
     }
-    public static void checkDuplication(int[] array, int count) {
+    public static void checkDuplication(int[] array) {
         HashMap<Integer, Integer> map = new HashMap<>();
-        for(int i=0; i<count; i++){
-            if(map.containsKey(array[i])){
+        for(int i : array){
+            if(map.containsKey(i)){
                 throw new IllegalArgumentException(ValidatorConstant.DUPLICATION);
             }
-            map.put(array[i], 1);
+            map.put(i, 1);
         }
     }
 

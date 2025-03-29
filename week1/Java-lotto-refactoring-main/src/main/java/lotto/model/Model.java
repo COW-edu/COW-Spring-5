@@ -47,7 +47,6 @@ public class Model {
     public void setCorrectLotto(String correctLotto) {
         StringTokenizer token = new StringTokenizer(correctLotto,",");
         int count =LottoConstant.LOTTO_COUNT;
-        int[] correctLottoList = new int[count];
         Validator.checkCounnt(token,count);
         for(int i=0; i<count; i++){
             String num = token.nextToken();
@@ -55,7 +54,7 @@ public class Model {
             Validator.checkRange(Integer.parseInt(num),LottoConstant.LOTTO_MIN,LottoConstant.LOTTO_MAX);
             this.correctLotto[i] = Integer.parseInt(num);
         }
-        Validator.checkDuplication(correctLottoList,count);
+        Validator.checkDuplication(this.correctLotto);
     }
     
     public int getLottoCount() {
