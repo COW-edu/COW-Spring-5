@@ -9,7 +9,7 @@ public class Validator{
 
     public static void checkNoBlank(String str) throws IllegalArgumentException {
         if (str.isEmpty()) {
-            throw new IllegalArgumentException(ValidatorConstant.NO_BLANK);
+            throw new IllegalArgumentException(ValidatorConstant.blankError());
         }
     }
 
@@ -17,20 +17,20 @@ public class Validator{
         try {
             Integer.parseInt(str);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ValidatorConstant.NUMBER);
+            throw new IllegalArgumentException(ValidatorConstant.numberError());
         }
     }
 
     public static void checkUnitMoney(int gold, int unit) throws IllegalArgumentException {
         if (gold % unit != 0) {
-            throw new IllegalArgumentException(unit + ValidatorConstant.UNIT_MONEY);
+            throw new IllegalArgumentException(ValidatorConstant.unitError(unit));
         }
     }
     public static void checkDuplication(int[] array) {
         HashMap<Integer, Integer> map = new HashMap<>();
         for(int i : array){
             if(map.containsKey(i)){
-                throw new IllegalArgumentException(ValidatorConstant.DUPLICATION);
+                throw new IllegalArgumentException(ValidatorConstant.duplicationError());
             }
             map.put(i, 1);
         }
@@ -38,18 +38,18 @@ public class Validator{
 
     public static void checkRange(int number, int min, int max) {
         if(number<min||number>max){
-            throw new IllegalArgumentException(min+ValidatorConstant.RANGE_MIN+max+ValidatorConstant.RANGE_MAX);
+            throw new IllegalArgumentException(ValidatorConstant.rangeError(min, max));
         }
     }
 
-    public static void checkCounnt(StringTokenizer token, int count) {
+    public static void checkCount(StringTokenizer token, int count) {
         if(token.countTokens()!=count){
-            throw new IllegalArgumentException(count+ValidatorConstant.COUNT);
+            throw new IllegalArgumentException(ValidatorConstant.countError(count));
         }
     }
     public static void checkBonusDuplicate(int[] correctLotto,int bonus) {
         if(Arrays.stream(correctLotto).anyMatch(x -> x == bonus)){
-            throw new IllegalArgumentException(ValidatorConstant.BONUS_DUPLICATE);
+            throw new IllegalArgumentException(ValidatorConstant.bonusDuplicateError());
         }
     }
 }

@@ -2,13 +2,10 @@ package lotto.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Random;
 import java.util.StringTokenizer;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import lotto.global.Constant;
 import lotto.global.LottoRank;
 import lotto.global.Validator;
 import lotto.global.Constant.LottoConstant;
@@ -48,7 +45,7 @@ public class Model {
     public void setCorrectLotto(String correctLotto) {
         StringTokenizer token = new StringTokenizer(correctLotto,",");
         int count =LottoConstant.LOTTO_COUNT;
-        Validator.checkCounnt(token,count);
+        Validator.checkCount(token,count);
         for(int i=0; i<count; i++){
             String num = token.nextToken();
             Validator.checkNumber(num);
