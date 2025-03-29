@@ -19,8 +19,11 @@ public enum LottoRank {
     }
     
     public static LottoRank valueOf(int count, boolean bonus) {
+        if(count== SECOND.count && bonus == SECOND.bonus) {
+            return SECOND;
+        }
         for(LottoRank rank : values()) {
-            if(rank.count == count && rank.bonus == bonus) {
+            if(rank.count == count) {
                 return rank;
             }
         }

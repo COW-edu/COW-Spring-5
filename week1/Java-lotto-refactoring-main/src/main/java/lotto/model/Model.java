@@ -27,6 +27,7 @@ public class Model {
         lottoCount = 0;
         bonus = 0;
         lottos = new ArrayList<Lotto>();
+        lottoResult = new HashMap<>();
     }
 
     public int getGold() {
@@ -85,13 +86,15 @@ public class Model {
         }
     }
     public void startLotto(){
-        lottoResult = new HashMap<>();
         for(LottoRank rank : LottoRank.values()){
             lottoResult.put(rank, 0);
         }
         for(Lotto lotto : lottos){
             int sameCount = Function.getSameCount(lotto.getNumbers(),correctLotto);
             if(sameCount>=3){
+                if(LottoRank.valueOf(sameCount, lotto.getNumbers().contains(bonus))==null){
+                    System.out.println("d");
+                }
                 lottoResult.put(LottoRank.valueOf(sameCount, lotto.getNumbers().contains(bonus))
                 , lottoResult.get(LottoRank.valueOf(sameCount, lotto.getNumbers().contains(bonus)))+1);
             }
