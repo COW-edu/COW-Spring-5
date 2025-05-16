@@ -8,7 +8,7 @@ public class PostResponse {
     private Long id;
     private String title;
     private String content;
-    private final Long memberId;
+    private Long memberId;
 
     public PostResponse(Long id, String title, String content, Long memberId) {
         this.id = id;
@@ -18,6 +18,6 @@ public class PostResponse {
     }
 
     public static PostResponse from(Post post) {
-        return new PostResponse(post.getId(), post.getTitle(), post.getContent(), post.getMemberId());
+        return new PostResponse(post.getId(), post.getTitle(), post.getContent(), post.getMember().getId());
     }
 }

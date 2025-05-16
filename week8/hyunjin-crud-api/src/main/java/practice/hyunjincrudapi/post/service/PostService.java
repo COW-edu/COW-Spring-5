@@ -3,6 +3,7 @@ package practice.hyunjincrudapi.post.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import practice.hyunjincrudapi.member.entity.Member;
 import practice.hyunjincrudapi.member.repository.JpaMemberRepository;
 import practice.hyunjincrudapi.post.controller.dto.request.CreatePostRequest;
 import practice.hyunjincrudapi.post.controller.dto.request.UpdatePostRequest;
@@ -21,11 +22,16 @@ public class PostService {
     private final JpaMemberRepository memberRepository;
 
     public void createPost(CreatePostRequest request) {
-        if (!memberRepository.existsById(request.getMemberId())) {
-            throw new IllegalArgumentException("존재하지 않는 회원입니다.");
-        }
+        Member member = memberRepository.findById(request.getMemberId())
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 회원입니다."));
 
-        postRepository.save(request.toEntity());
+        Post post = Post.builder()
+                .title(request.getTitle())
+                .content(request.getContent())
+                .member(member)
+                .build();
+
+        postRepository.save(post);
     }
 
     public List<PostResponse> getAllPosts(){

@@ -5,6 +5,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import practice.hyunjincrudapi.member.entity.Member;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -18,14 +19,15 @@ public class Post {
     private String title;
     private String content;
 
-    @Column(name="member_id")
-    private Long memberId;
+    @ManyToOne
+    @JoinColumn(name = "member_id", nullable = false)
+    private Member member;
 
     @Builder
-    public Post(String title, String content, Long memberId) {
+    public Post(String title, String content, Member member) {
         this.title = title;
         this.content = content;
-        this.memberId = memberId;
+        this.member = member;
     }
 
     public void update(String title, String content) {
