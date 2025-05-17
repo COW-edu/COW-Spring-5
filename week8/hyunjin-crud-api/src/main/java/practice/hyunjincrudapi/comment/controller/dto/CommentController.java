@@ -15,22 +15,22 @@ import java.util.List;
 public class CommentController {
     private final CommentService commentService;
 
-    @PostMapping("/comment")
+    @PostMapping("/comments")
     public void createComment(@RequestBody CreateCommentRequest request) {
         commentService.createComment(request);
     }
 
-    @GetMapping("/post/{postId}/comment")
+    @GetMapping("/posts/{postId}/comments")
     public List<CommentResponse> getComments(@PathVariable Long postId) {
         return commentService.getCommentsByPost(postId);
     }
 
-    @PatchMapping("/comment/{id}")
+    @PatchMapping("/comments/{id}")
     public void updateComment(@PathVariable Long id, @RequestBody UpdateCommentRequest request) {
         commentService.updateComment(id, request);
     }
 
-    @DeleteMapping("/comment/{id}")
+    @DeleteMapping("/comments/{id}")
     public void deleteComment(@PathVariable Long id) {
         commentService.deleteComment(id);
     }
