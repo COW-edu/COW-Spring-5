@@ -29,11 +29,7 @@ public class CommentService {
         Post post = postRepository.findById(request.getPostId())
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 게시글입니다."));
 
-        Comment comment = Comment.builder()
-                .content(request.getContent())
-                .member(member)
-                .post(post)
-                .build();
+        Comment comment = request.toEntity(member, post);
 
         commentRepository.save(comment);
     }

@@ -25,12 +25,7 @@ public class PostService {
         Member member = memberRepository.findById(request.getMemberId())
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 회원입니다."));
 
-        Post post = Post.builder()
-                .title(request.getTitle())
-                .content(request.getContent())
-                .member(member)
-                .build();
-
+        Post post = request.toEntity(member);
         postRepository.save(post);
     }
 
