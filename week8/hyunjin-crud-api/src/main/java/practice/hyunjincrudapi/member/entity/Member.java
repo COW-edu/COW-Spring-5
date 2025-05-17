@@ -5,6 +5,11 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import practice.hyunjincrudapi.comment.entity.Comment;
+import practice.hyunjincrudapi.post.entity.Post;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -19,6 +24,12 @@ public class Member {
     private String password;
     @Column(unique = true, nullable = false) //unique=true -> unique한 값으로 지정
     private String email;
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    private List<Post> posts = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    private List<Comment> comments = new ArrayList<>();
 
     @Builder
     public Member(String name, String password, String email) {
