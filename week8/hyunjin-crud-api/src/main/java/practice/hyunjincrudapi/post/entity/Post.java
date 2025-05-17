@@ -5,7 +5,11 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import practice.hyunjincrudapi.comment.entity.Comment;
 import practice.hyunjincrudapi.member.entity.Member;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -22,6 +26,9 @@ public class Post {
     @ManyToOne
     @JoinColumn(name = "member_id", nullable = false)
     private Member member;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> comments = new ArrayList<>();
 
     @Builder
     public Post(String title, String content, Member member) {
