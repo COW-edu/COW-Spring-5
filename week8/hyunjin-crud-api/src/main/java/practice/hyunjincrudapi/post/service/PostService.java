@@ -30,7 +30,9 @@ public class PostService {
     }
 
     public List<PostResponse> getAllPosts(){
-        return postRepository.findAll().stream().map(PostResponse::from).collect(Collectors.toList());
+        return postRepository.findAll().stream()
+                .map(PostResponse::from)
+                .collect(Collectors.toList());
     }
 
     public PostResponse getPostById(Long id) {
@@ -40,12 +42,18 @@ public class PostService {
     }
 
     public void updatePost(Long id, UpdatePostRequest request) {
-        Post post = postRepository.findById(id).orElseThrow(()-> new IllegalArgumentException(("해당 게시글이 존재하지 않습니다.")));
+        Post post = postRepository
+                .findById(id)
+                .orElseThrow(()-> new IllegalArgumentException(("해당 게시글이 존재하지 않습니다.")));
+
         post.update(request.getTitle(), request.getContent());
     }
 
     public void deletePost(Long id) {
-        Post post = postRepository.findById(id).orElseThrow(()-> new IllegalArgumentException(("해당 게시글이 존재하지 않습니다.")));
+        Post post = postRepository
+                .findById(id)
+                .orElseThrow(()-> new IllegalArgumentException(("해당 게시글이 존재하지 않습니다.")));
+
         postRepository.delete(post);
     }
 }

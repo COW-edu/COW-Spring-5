@@ -24,7 +24,9 @@ public class CommentService {
     private final JpaPostRepository postRepository;
 
     public void createComment(CreateCommentRequest request) {
-        Member member = memberRepository.findById(request.getMemberId()).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 회원입니다."));
+        Member member = memberRepository
+                .findById(request.getMemberId())
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 회원입니다."));
 
         Post post = postRepository.findById(request.getPostId())
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 게시글입니다."));
@@ -35,16 +37,24 @@ public class CommentService {
     }
 
     public List<CommentResponse> getCommentsByPost(Long postId){
-        return commentRepository.findByPostId(postId).stream().map(CommentResponse::from).toList();
+        return commentRepository.findByPostId(postId).stream()
+                .map(CommentResponse::from)
+                .toList();
     }
 
     public void updateComment(Long commentId, UpdateCommentRequest request) {
-        Comment comment = commentRepository.findById(commentId).orElseThrow(()-> new IllegalArgumentException(("존재하지 않는 댓글입니다.")));
+        Comment comment = commentRepository
+                .findById(commentId)
+                .orElseThrow(()-> new IllegalArgumentException(("존재하지 않는 댓글입니다.")));
+
         comment.updateContent(request.getContent());
     }
 
     public void deleteComment(Long commentId){
-        Comment comment = commentRepository.findById(commentId).orElseThrow(()-> new IllegalArgumentException(("존재하지 않는 댓글입니다.")));
+        Comment comment = commentRepository
+                .findById(commentId)
+                .orElseThrow(()-> new IllegalArgumentException(("존재하지 않는 댓글입니다.")));
+
         commentRepository.delete(comment);
     }
 }
