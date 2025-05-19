@@ -11,31 +11,31 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping
+@RequestMapping("/posts")
 public class PostController {
     private final PostService postService;
 
-    @PostMapping("/posts")
+    @PostMapping
     public void uploadPost(@RequestBody CreatePostRequest createPostRequest) {
         postService.createPost(createPostRequest);
     }
 
-    @GetMapping("/posts")
+    @GetMapping
     public List<PostResponse> getAllPosts(){
         return postService.getAllPosts();
     }
 
-    @GetMapping("/posts/{id}")
+    @GetMapping("/{id}")
     public PostResponse getPostById(@PathVariable Long id) {
         return postService.getPostById(id);
     }
 
-    @PutMapping("/posts/{id}")
+    @PutMapping("/{id}")
     public void updatePost(@PathVariable Long id, @RequestBody UpdatePostRequest updatePostRequest) {
         postService.updatePost(id, updatePostRequest);
     }
 
-    @DeleteMapping("/posts/{id}")
+    @DeleteMapping("/{id}")
     public void deletePost(@PathVariable Long id) {
         postService.deletePost(id);
     }

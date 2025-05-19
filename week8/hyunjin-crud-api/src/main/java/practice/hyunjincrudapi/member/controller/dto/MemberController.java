@@ -9,26 +9,26 @@ import practice.hyunjincrudapi.member.service.MemberService;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping
+@RequestMapping("/members")
 public class MemberController {
     private final MemberService memberService;
 
-    @PostMapping("/members")
+    @PostMapping
     public void signup(@RequestBody CreateMemberRequest createMemberRequest) {
         memberService.signup(createMemberRequest);
     }
 
-    @GetMapping("/members/{id}")
+    @GetMapping("/{id}")
     public MemberResponse getMember(@PathVariable Long id) {
         return memberService.getMember(id);
     }
 
-    @PutMapping("/members/{id}")
+    @PutMapping("/{id}")
     public void updateMember(@PathVariable Long id, @RequestBody UpdateMemberRequest updateMemberRequest) {
         memberService.updateMember(id, updateMemberRequest);
     }
 
-    @DeleteMapping("/members/{id}")
+    @DeleteMapping("/{id}")
     public void deleteMember(@PathVariable Long id) {
         memberService.deleteMember(id);
     }
