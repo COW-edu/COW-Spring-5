@@ -46,7 +46,7 @@ public class PostService {
                 .findById(id)
                 .orElseThrow(()-> new IllegalArgumentException(("해당 게시글이 존재하지 않습니다.")));
 
-        post.update(request.getTitle(), request.getContent());
+        post.updatePost(request.getTitle(), request.getContent());
     }
 
     public void deletePost(Long id) {

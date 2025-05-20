@@ -36,7 +36,7 @@ public class Post {
         this.member = member;
     }
 
-    public void update(String title, String content) {
+    public void updatePost(String title, String content) {
         if(title!=null){
             this.title = title;
         }
