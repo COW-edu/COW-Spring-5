@@ -1,5 +1,6 @@
 package practice.hyunjincrudapi.comment.controller.dto;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import practice.hyunjincrudapi.comment.controller.dto.request.CreateCommentRequest;
@@ -25,7 +26,7 @@ public class CommentController {
     }
 
     @PatchMapping("/comments/{id}")
-    public void updateComment(@PathVariable Long id, @RequestBody UpdateCommentRequest request) {
+    public void updateComment(@PathVariable Long id, @RequestBody @Valid UpdateCommentRequest request) {
         commentService.updateComment(id, request);
     }
 

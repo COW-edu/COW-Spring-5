@@ -1,5 +1,6 @@
 package practice.hyunjincrudapi.post.controller.dto;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import practice.hyunjincrudapi.post.controller.dto.request.CreatePostRequest;
@@ -31,7 +32,7 @@ public class PostController {
     }
 
     @PutMapping("/{id}")
-    public void updatePost(@PathVariable Long id, @RequestBody UpdatePostRequest updatePostRequest) {
+    public void updatePost(@PathVariable Long id, @RequestBody @Valid UpdatePostRequest updatePostRequest) {
         postService.updatePost(id, updatePostRequest);
     }
 
