@@ -1,10 +1,10 @@
-package practice.hyunjincrudapi.member.controller.dto;
+package practice.hyunjincrudapi.member.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import practice.hyunjincrudapi.member.controller.dto.request.CreateMemberRequest;
-import practice.hyunjincrudapi.member.controller.dto.request.UpdateMemberRequest;
-import practice.hyunjincrudapi.member.controller.dto.response.MemberResponse;
+import practice.hyunjincrudapi.member.dto.request.CreateMemberRequest;
+import practice.hyunjincrudapi.member.dto.request.UpdateMemberRequest;
+import practice.hyunjincrudapi.member.dto.response.MemberResponse;
 import practice.hyunjincrudapi.member.service.MemberService;
 
 @RestController

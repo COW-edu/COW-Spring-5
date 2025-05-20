@@ -3,9 +3,9 @@ package practice.hyunjincrudapi.member.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import practice.hyunjincrudapi.member.controller.dto.request.CreateMemberRequest;
-import practice.hyunjincrudapi.member.controller.dto.request.UpdateMemberRequest;
-import practice.hyunjincrudapi.member.controller.dto.response.MemberResponse;
+import practice.hyunjincrudapi.member.dto.request.CreateMemberRequest;
+import practice.hyunjincrudapi.member.dto.request.UpdateMemberRequest;
+import practice.hyunjincrudapi.member.dto.response.MemberResponse;
 import practice.hyunjincrudapi.member.entity.Member;
 import practice.hyunjincrudapi.member.repository.JpaMemberRepository;
 

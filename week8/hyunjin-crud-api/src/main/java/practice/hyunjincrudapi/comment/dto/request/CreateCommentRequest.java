@@ -1,4 +1,4 @@
-package practice.hyunjincrudapi.comment.controller.dto.request;
+package practice.hyunjincrudapi.comment.dto.request;
 
 import lombok.Getter;
 import practice.hyunjincrudapi.comment.entity.Comment;

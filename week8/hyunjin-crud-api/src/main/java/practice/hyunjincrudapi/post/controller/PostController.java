@@ -1,11 +1,11 @@
-package practice.hyunjincrudapi.post.controller.dto;
+package practice.hyunjincrudapi.post.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import practice.hyunjincrudapi.post.controller.dto.request.CreatePostRequest;
-import practice.hyunjincrudapi.post.controller.dto.request.UpdatePostRequest;
-import practice.hyunjincrudapi.post.controller.dto.response.PostResponse;
+import practice.hyunjincrudapi.post.dto.request.CreatePostRequest;
+import practice.hyunjincrudapi.post.dto.request.UpdatePostRequest;
+import practice.hyunjincrudapi.post.dto.response.PostResponse;
 import practice.hyunjincrudapi.post.service.PostService;
 
 import java.util.List;

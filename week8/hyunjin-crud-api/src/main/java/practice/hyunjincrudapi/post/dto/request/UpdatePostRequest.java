@@ -1,4 +1,4 @@
-package practice.hyunjincrudapi.post.controller.dto.request;
+package practice.hyunjincrudapi.post.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;

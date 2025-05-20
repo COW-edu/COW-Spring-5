@@ -5,9 +5,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import practice.hyunjincrudapi.member.entity.Member;
 import practice.hyunjincrudapi.member.repository.JpaMemberRepository;
-import practice.hyunjincrudapi.post.controller.dto.request.CreatePostRequest;
-import practice.hyunjincrudapi.post.controller.dto.request.UpdatePostRequest;
-import practice.hyunjincrudapi.post.controller.dto.response.PostResponse;
+import practice.hyunjincrudapi.post.dto.request.CreatePostRequest;
+import practice.hyunjincrudapi.post.dto.request.UpdatePostRequest;
+import practice.hyunjincrudapi.post.dto.response.PostResponse;
 import practice.hyunjincrudapi.post.entity.Post;
 import practice.hyunjincrudapi.post.repository.JpaPostRepository;
 

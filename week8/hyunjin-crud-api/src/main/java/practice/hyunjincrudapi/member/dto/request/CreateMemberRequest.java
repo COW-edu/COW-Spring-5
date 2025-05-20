@@ -1,4 +1,4 @@
-package practice.hyunjincrudapi.member.controller.dto.request;
+package practice.hyunjincrudapi.member.dto.request;
 
 import lombok.Getter;
 import practice.hyunjincrudapi.member.entity.Member;

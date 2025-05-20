@@ -1,11 +1,11 @@
-package practice.hyunjincrudapi.comment.controller.dto;
+package practice.hyunjincrudapi.comment.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import practice.hyunjincrudapi.comment.controller.dto.request.CreateCommentRequest;
-import practice.hyunjincrudapi.comment.controller.dto.request.UpdateCommentRequest;
-import practice.hyunjincrudapi.comment.controller.dto.response.CommentResponse;
+import practice.hyunjincrudapi.comment.dto.request.CreateCommentRequest;
+import practice.hyunjincrudapi.comment.dto.request.UpdateCommentRequest;
+import practice.hyunjincrudapi.comment.dto.response.CommentResponse;
 import practice.hyunjincrudapi.comment.service.CommentService;
 
 import java.util.List;

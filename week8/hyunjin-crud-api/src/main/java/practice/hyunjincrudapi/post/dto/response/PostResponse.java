@@ -1,4 +1,4 @@
-package practice.hyunjincrudapi.post.controller.dto.response;
+package practice.hyunjincrudapi.post.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
