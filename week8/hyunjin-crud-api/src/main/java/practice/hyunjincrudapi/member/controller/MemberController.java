@@ -9,7 +9,7 @@ import practice.hyunjincrudapi.member.service.MemberService;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/members")
+@RequestMapping("/members1")
 public class MemberController {
     private final MemberService memberService;
 
