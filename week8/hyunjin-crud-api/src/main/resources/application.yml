@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: name-crud-api2
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        highlight_sql: true
+  datasource:
+    url: jdbc:mysql://cow-database.chmg4e88k39w.ap-northeast-2.rds.amazonaws.com/cow?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: admin
+    password: tls2530.
+
+  docker:
+    compose:
+      file: compose.yaml
+      enabled: true
+      lifecycle-management: none
+      start:
+        command: up
+      stop:
+        command: down
+        timeout: 1m
+
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace
